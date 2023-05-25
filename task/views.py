@@ -2,6 +2,7 @@ from django.shortcuts import render
 import csv
 
 # Create your views here.
+
 def taskdetails(request):
     if request.method == 'POST':
         taskname = request.POST.get('taskname')
@@ -11,3 +12,7 @@ def taskdetails(request):
             writer = csv.writer(file)
             writer.writerow([taskname, taskid, taskstatus])
     return render(request, 'taskdetails.html',)
+
+def login(request):
+    return render(request, 'login.html')
+
